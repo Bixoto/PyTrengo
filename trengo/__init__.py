@@ -10,14 +10,16 @@ __version__ = "0.1.0-alpha1"
 
 
 class Trengo(APISession):
-    def __init__(self, token: str | None = None):
+    def __init__(self, *args, token: str | None = None, **kwargs):
         if token is None:
             token = os.environ.get("TRENGO_TOKEN")
             if token is None:
                 raise RuntimeError("No Trengo token provided, and the environment variable TRENGO_TOKEN is not set")
 
         super().__init__(
+            *args,
             base_url="https://app.trengo.eu/api/v2",
+            **kwargs,
         )
         self.headers["Authorization"] = f"Bearer {token}"
 
