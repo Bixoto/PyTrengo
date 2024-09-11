@@ -1,5 +1,5 @@
 # PyTrengo Changelog
 
-## 0.0.1 (unreleased)
+## 0.1.0-alpha1 (unreleased)
 
 Initial release.
