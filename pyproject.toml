@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytrengo"
-version = "0.1.0"
+version = "0.0.1"
 description = ""
 authors = ["Baptiste Fontaine <baptiste@bixoto.com>"]
 include = ["trengo/py.typed"]
@@ -17,7 +17,7 @@ python-dotenv = "^1.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1"
-pytest = "^8.3.3"
+pytest = "^8.3"
 
 [build-system]
 requires = ["poetry-core"]
