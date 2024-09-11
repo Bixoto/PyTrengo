@@ -1,0 +1,22 @@
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
+image: python:3.10
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  POETRY_CACHE_DIR: "$CI_PROJECT_DIR/.cache/poetry"
+
+cache:
+  paths:
+    - .cache/pip
+    - .cache/poetry
+
+before_script:
+  - apt-get -qq update
+  - python -V  # Print out python version for debugging
+  - python -m pip install --upgrade pip
+  - python -m pip install poetry
+  - poetry install
+
+test:
+  script:
+    - './ci.sh'

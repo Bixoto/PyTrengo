@@ -3,13 +3,21 @@ name = "pytrengo"
 version = "0.1.0"
 description = ""
 authors = ["Baptiste Fontaine <baptiste@bixoto.com>"]
+include = ["trengo/py.typed"]
 readme = "README.md"
+packages = [
+    { include = "trengo" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 api-session = "^1.4.1"
 python-dotenv = "^1.0"
 
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1"
+pytest = "^8.3.3"
 
 [build-system]
 requires = ["poetry-core"]
