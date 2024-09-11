@@ -174,7 +174,10 @@ def make_params(params: dict[str, Any]):
     formatted_params: dict[str, Any] = {}
 
     for name, value in params.items():
-        if name.endswith("[]") and value is not None:
+        if value is None:
+            continue
+
+        if name.endswith("[]"):
             value = list(value)
         elif name.endswith("_date"):
             if isinstance(value, datetime):
