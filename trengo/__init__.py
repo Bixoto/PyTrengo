@@ -4,9 +4,6 @@ from datetime import datetime
 from typing import Any, Iterable
 
 from api_session import APISession, JSONDict
-from dotenv import load_dotenv
-
-load_dotenv()
 
 __all__ = ["Trengo", "__version__"]
 __version__ = "0.1.0-alpha1"

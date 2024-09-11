@@ -17,13 +17,13 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.10"
 api-session = "^1.4.1"
-python-dotenv = "^1.0"
 
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1"
 pytest = "^8"
 pytest-cov = "^5"
+python-dotenv = "^1.0.1"
 
 [build-system]
 requires = ["poetry-core"]
