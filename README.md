@@ -18,7 +18,7 @@ Requirement: Python 3.10+
 
 ## Usage
 
-```
+```python3
 from trengo import Trengo
 
 trengo_client = Trengo(token="...")
@@ -35,7 +35,7 @@ for ticket in trengo_client.get_tickets():
 
 Note: even if an endpoint is not implemented, you can call it with one of the helper methods:
 
-```python
+```python3
 # GET /v2/some-endpoints?foo=bar
 trengo_client.get_json_api("/some-endpoint", params={"foo": "bar"})
 # POST /v2/some-other-endpoint with {"foo": "bar"}
