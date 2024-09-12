@@ -1,6 +1,6 @@
 # PyTrengo Changelog
 
-## Unreleased
+## 0.1.1 (unreleased)
 
 * Add `get_tickets`, `get_ticket_aggregates`, `create_ticket`
 * Add `send_whatsapp_template`
