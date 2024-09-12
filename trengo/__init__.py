@@ -3,10 +3,10 @@ from collections.abc import Iterator
 from datetime import datetime
 from typing import Any, Iterable
 
-from api_session import APISession, JSONDict
+from api_session import APISession, JSONDict, escape_path
 
 __all__ = ["Trengo", "__version__"]
-__version__ = "0.1.0-alpha1"
+__version__ = "0.1.0"
 
 
 class Trengo(APISession):
@@ -119,6 +119,31 @@ class Trengo(APISession):
     def get_webhooks(self, **kwargs):
         """Yield all webhooks."""
         return self._get_paginated("/webhooks", **kwargs)
+
+    def create_webhook(
+            self, *,
+            name: str,
+            type_: str,
+            url: str,
+            **kwargs,
+    ):
+        """Create a webhook.
+
+        See https://developers.trengo.com/docs/webhooks.
+        """
+        return self.post_json_api(
+            "/webhooks",
+            json={
+                "name": name,
+                "type": type_,
+                "url": url,
+            },
+            **kwargs
+        )
+
+    def get_webhook(self, webhook_id: int, **kwargs):
+        """Get a webhook"""
+        return self.get_json_api(f"/webhooks/{escape_path(webhook_id)}", **kwargs)
 
     # == Quick Actions ==
     # == Beta - Reporting ==
