@@ -1,6 +1,6 @@
 import os
 from collections.abc import Iterator
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Any, Iterable
 
 from api_session import APISession, JSONDict, escape_path
@@ -323,7 +323,7 @@ def make_params(params: dict[str, Any]):
             value = list(value)
         elif isinstance(value, datetime):
             # Format: 2024-01-01T00:00:00+01:00
-            value = value.replace(microsecond=0).isoformat()
+            value = value.replace(microsecond=0, tzinfo=value.tzinfo or UTC).isoformat()
         elif isinstance(value, bool):
             value = "true" if value else "false"
 

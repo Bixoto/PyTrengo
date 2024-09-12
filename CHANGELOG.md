@@ -1,5 +1,9 @@
 # PyTrengo Changelog
 
+## Unreleased
+
+* Fix the date parameters serialization (again)
+
 ## 0.1.1 (2024/09/12)
 
 * Add `get_tickets`, `get_ticket_aggregates`, `create_ticket`, `mark_ticket_as_spam`, `mark_ticket_as_favorite`,
