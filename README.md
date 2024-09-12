@@ -14,6 +14,8 @@ With Poetry:
 
     poetry add pytrengo
 
+Requirement: Python 3.10+
+
 ## Endpoints coverage
 
 Note: even if an endpoint is not implemented, you can call it with one of the helper methods:
