@@ -1,5 +1,10 @@
 # PyTrengo Changelog
 
+## Unreleased
+
+* Add `get_tickets`, `get_ticket_aggregates`, `create_ticket`
+* Add `send_whatsapp_template`
+
 ## 0.1.0 (2024/09/12)
 
 * Fix the date parameters serialization

@@ -33,7 +33,76 @@ class Trengo(APISession):
             page += 1
 
     # == Tickets ==
+
+    def get_tickets(
+            self, *,
+            status: str | None = None,
+            contact_id: int | None = None,
+            users: list[int] | None = None,
+            channels: list[int] | None = None,
+            last_message_type: str | None = None,
+            sort: str | None = None,
+            **kwargs,
+    ):
+        return self._get_paginated(
+            "/tickets",
+            params=make_params({
+                "status": status,
+                "contact_id": contact_id,
+                "users[]": users,
+                "channels[]": channels,
+                "last_message_type": last_message_type,
+                "sort": sort,
+            }),
+            **kwargs,
+        )
+
+    def get_ticket_aggregates(self, **kwargs) -> dict[str, dict[str, int]]:
+        """List all ticket aggregates."""
+        return self.get_json_api("/ticket_aggregates", **kwargs)
+
+    def create_ticket(
+            self, *,
+            channel_id: int,
+            contact_id: str,
+            subject: str | None = None,
+            **kwargs,
+    ):
+        """Create a ticket."""
+        return self.post_json_api(
+            "/tickets",
+            json={
+                "channel_id": channel_id,
+                "contact_id": contact_id,
+                "subject": subject,
+            },
+            **kwargs,
+        )
+
     # == WhatsApp ==
+
+    def send_whatsapp_template(
+            self,
+            recipient_phone_number: str, *,
+            hsm_id: int,
+            params: list[JSONDict] | None = None,
+            ticket_id: str | None = None,
+            source: str | None = None,
+            **kwargs,
+    ):
+        """Send a WhatsApp template."""
+        return self.post_json_api(
+            "/wa_sessions",
+            json={
+                "recipient_phone_number": recipient_phone_number,
+                "hsm_id": hsm_id,
+                "params": params or [],
+                "ticket_id": ticket_id,
+                "source": source,
+            },
+            **kwargs,
+        )
+
     # == Contacts ==
 
     def get_contacts(self, term: str | None, **kwargs):
