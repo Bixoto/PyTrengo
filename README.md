@@ -45,8 +45,8 @@ trengo_client.post_json_api("/some-other-endpoint",
 
 | Endpoint                           | Method                                      |
 |:-----------------------------------|:--------------------------------------------|
-| **All endpoints**                  | **20%**                                     |
-| **Tickets**                        | **15%**                                     |
+| **All endpoints**                  | **24%**                                     |
+| **Tickets**                        | **35%**                                     |
 | List all tickets                   | `get_tickets` (since 0.1.1)                 |
 | List all aggregates                | `get_ticket_aggregates` (since 0.1.1)       |
 | Create a ticket                    | `create_ticket` (since 0.1.1)               |
@@ -57,15 +57,15 @@ trengo_client.post_json_api("/some-other-endpoint",
 | Attach a label                     |                                             |
 | Detach a label                     |                                             |
 | Delete a ticket                    |                                             |
-| Mark as spam                       |                                             |
-| Unmark as spam                     |                                             |
+| Mark as spam                       | `mark_ticket_as_spam` (since 0.1.1)         |
+| Unmark as spam                     | `unmark_ticket_as_spam` (since 0.1.1)       |
 | Set custom data                    |                                             |
 | Delete a message                   |                                             |
 | Send a ticket message              |                                             |
 | Send a ticket media message        |                                             |
 | List all messages                  |                                             |
-| Mark a ticket as favorite          |                                             |
-| Unmark a ticket as favorite        |                                             |
+| Mark a ticket as favorite          | `mark_ticket_as_favorite` (since 0.1.1)     |
+| Unmark a ticket as favorite        | `unmark_ticket_as_favorite` (since 0.1.1)   |
 | Fetch a message                    |                                             |
 | Store a custom channel message     |                                             |
 | **WhatsApp**                       | **100%**                                    |

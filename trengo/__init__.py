@@ -79,6 +79,22 @@ class Trengo(APISession):
             **kwargs,
         )
 
+    def mark_ticket_as_spam(self, ticket_id: int, **kwargs):
+        """Mark a ticket as spam"""
+        return self.post_json_api(f"/tickets/{escape_path(ticket_id)}/spam", **kwargs)
+
+    def unmark_ticket_as_spam(self, ticket_id: int, **kwargs):
+        """Unmark a ticket as spam"""
+        return self.delete_json_api(f"/tickets/{escape_path(ticket_id)}/spam", **kwargs)
+
+    def mark_ticket_as_favorite(self, ticket_id: int, **kwargs):
+        """Mark a ticket as favorite"""
+        return self.post_json_api(f"/tickets/{escape_path(ticket_id)}/favorited", **kwargs)
+
+    def unmark_ticket_as_favorite(self, ticket_id: int, **kwargs):
+        """Unmark a ticket as favorite"""
+        return self.delete_json_api(f"/tickets/{escape_path(ticket_id)}/favorited/0", **kwargs)
+
     # == WhatsApp ==
 
     def send_whatsapp_template(
