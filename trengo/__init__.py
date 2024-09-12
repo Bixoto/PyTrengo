@@ -79,6 +79,85 @@ class Trengo(APISession):
             **kwargs,
         )
 
+    def assign_ticket(
+            self, ticket_id: str, *,
+            type_: str,
+            user_id: int | None = None,
+            team_id: int | None = None,
+            note: str | None = None,
+            **kwargs,
+    ):
+        """
+        Assign a ticket.
+
+        :param ticket_id:
+        :param type_: This must be `team` or `user`.
+        :param user_id:
+        :param team_id:
+        :param note:
+        :param kwargs:
+        :return:
+        """
+        return self.post_json_api(
+            f"/tickets/{escape_path(ticket_id)}/assign",
+            json={
+                "type": type_,
+                "user_id": user_id,
+                "team_id": team_id,
+                "note": note,
+            },
+            **kwargs,
+        )
+
+    def assign_ticket_to_user(self, ticket_id: str, user_id: int, *, note: str | None = None, **kwargs):
+        """Alias for `assign_ticket(ticket_id, type_="user", user_id=user_id)."""
+        return self.assign_ticket(
+            ticket_id=ticket_id,
+            type_="user",
+            user_id=user_id,
+            note=note,
+            **kwargs,
+        )
+
+    def assign_ticket_to_team(self, ticket_id: str, team_id: int, *, note: str | None = None, **kwargs):
+        """Alias for `assign_ticket(ticket_id, type_="team", team_id=team_id)."""
+        return self.assign_ticket(
+            ticket_id=ticket_id,
+            type_="team",
+            team_id=team_id,
+            note=note,
+            **kwargs,
+        )
+
+    def close_ticket(self, ticket_id: int, *, ticket_result_id: int | None = None, **kwargs):
+        """Close a ticket."""
+        return self.post_json_api(
+            f"/tickets/{escape_path(ticket_id)}/close",
+            json={
+                "ticket_id": ticket_id,
+                "ticket_result_id": ticket_result_id,
+            },
+            **kwargs,
+        )
+
+    def reopen_ticket(self, ticket_id: int, **kwargs):
+        """Reopen a ticket."""
+        return self.post_json_api(
+            f"/tickets/{escape_path(ticket_id)}/reopen",
+            json={},
+            **kwargs,
+        )
+
+    def merge_ticket(self, source_ticket_id: int, target_ticket_id: int, **kwargs):
+        """Merge a ticket."""
+        return self.post_json_api(
+            f"/tickets/{escape_path(target_ticket_id)}/merge",
+            json={
+                "source_ticket_id": source_ticket_id,
+            },
+            **kwargs,
+        )
+
     def mark_ticket_as_spam(self, ticket_id: int, **kwargs):
         """Mark a ticket as spam"""
         return self.post_json_api(f"/tickets/{escape_path(ticket_id)}/spam", **kwargs)

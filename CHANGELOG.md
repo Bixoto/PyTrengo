@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Fix the date parameters serialization (again)
+* Add `assign_ticket`, `assign_ticket_to_user`, `assign_ticket_to_team`, `close_ticket`, `reopen_ticket`, `merge_ticket`
 
 ## 0.1.1 (2024/09/12)
 
