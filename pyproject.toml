@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytrengo"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Baptiste Fontaine <baptiste@bixoto.com>"]
 include = ["trengo/py.typed"]
