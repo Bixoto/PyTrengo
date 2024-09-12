@@ -3,6 +3,8 @@
 ## 0.1.1 (unreleased)
 
 * Add `get_tickets`, `get_ticket_aggregates`, `create_ticket`
+* Add `get_help_center_categories`, `get_help_center_blocks`, `get_help_center`, `get_help_center_category`,
+  `get_help_center_article`, `get_help_center_block`, `delete_help_center`, `delete_help_center_category`
 * Add `send_whatsapp_template`
 
 ## 0.1.0 (2024/09/12)

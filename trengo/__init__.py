@@ -135,6 +135,42 @@ class Trengo(APISession):
         # yes it’s "help_center", not "help_centers"
         return self._get_paginated("/help_center", **kwargs)
 
+    def get_help_center_categories(self, help_center_id: int, **kwargs):
+        """Yield all help center categories."""
+        return self._get_paginated(f"/help_center/{escape_path(help_center_id)}/categories", **kwargs)
+
+    def get_help_center_blocks(self, help_center_id: int, **kwargs):
+        """Yield all help center blocks."""
+        return self._get_paginated(f"/help_center/{escape_path(help_center_id)}/blocks", **kwargs)
+
+    def get_help_center(self, help_center_id: int, **kwargs):
+        """Get a help center."""
+        return self.get_json_api(f"/help_center/{escape_path(help_center_id)}", **kwargs)
+
+    def get_help_center_category(self, help_center_id: int, category_id: int, **kwargs):
+        """Get a help center category."""
+        return self.get_json_api(f"/help_center/{escape_path(help_center_id)}/categories/{escape_path(category_id)}",
+                                 **kwargs)
+
+    def get_help_center_article(self, help_center_id: int, article_id: int, **kwargs):
+        """Get a help center article."""
+        return self.get_json_api(f"/help_center/{escape_path(help_center_id)}/articles/{escape_path(article_id)}",
+                                 **kwargs)
+
+    def get_help_center_block(self, help_center_id: int, block_id: int, **kwargs):
+        """Get a help center block."""
+        return self.get_json_api(f"/help_center/{escape_path(help_center_id)}/blocks/{escape_path(block_id)}",
+                                 **kwargs)
+
+    def delete_help_center(self, help_center_id: int, **kwargs):
+        """Delete a help center."""
+        return self.delete_json_api(f"/help_center/{escape_path(help_center_id)}", **kwargs)
+
+    def delete_help_center_category(self, help_center_id: int, category_id: int, **kwargs):
+        """Delete a help center category."""
+        return self.delete_json_api(f"/help_center/{escape_path(help_center_id)}/categories/{escape_path(category_id)}",
+                                    **kwargs)
+
     # == Quick Replies ==
 
     def get_quick_replies(self, reply_type: str, **kwargs):
