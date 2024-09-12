@@ -1,5 +1,9 @@
 # PyTrengo Changelog
 
+## 0.1.3 (unreleased)
+
+* Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`
+
 ## 0.1.2 (2024/09/12)
 
 * Fix the date parameters serialization (again)

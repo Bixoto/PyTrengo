@@ -88,7 +88,7 @@ class Trengo(APISession):
             **kwargs,
     ):
         """
-        Assign a ticket.
+        Assign a ticket. See also the convenient aliases `assign_ticket_to_user` and `assign_ticket_to_team`.
 
         :param ticket_id:
         :param type_: This must be `team` or `user`.
@@ -155,6 +155,28 @@ class Trengo(APISession):
             json={
                 "source_ticket_id": source_ticket_id,
             },
+            **kwargs,
+        )
+
+    def attach_ticket_label(self, ticket_id: int, label_id: int, **kwargs):
+        """Attach a label to a ticket."""
+        return self.post_json_api(
+            f"/tickets/{escape_path(ticket_id)}/labels",
+            json={"label_id": label_id},
+            **kwargs,
+        )
+
+    def detach_ticket_label(self, ticket_id: int, label_id: int, **kwargs):
+        """Detach a label from a ticket."""
+        return self.delete_json_api(
+            f"/tickets/{escape_path(ticket_id)}/labels/{escape_path(label_id)}",
+            **kwargs,
+        )
+
+    def delete_ticket(self, ticket_id: int, **kwargs):
+        """Delete a ticket."""
+        return self.delete_json_api(
+            f"/tickets/{escape_path(ticket_id)}",
             **kwargs,
         )
 
