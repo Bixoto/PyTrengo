@@ -200,10 +200,9 @@ def make_params(params: dict[str, Any]):
 
         if name.endswith("[]"):
             value = list(value)
-        elif name.endswith("_date"):
+        elif isinstance(value, datetime):
             # Format: 2024-01-01T00:00:00+01:00
-            if isinstance(value, datetime):
-                value = value.replace(microsecond=0).isoformat()
+            value = value.replace(microsecond=0).isoformat()
         elif isinstance(value, bool):
             value = "true" if value else "false"
 
