@@ -1,6 +1,6 @@
 # PyTrengo Changelog
 
-## 0.1.1 (unreleased)
+## 0.1.1 (2024/09/12)
 
 * Add `get_tickets`, `get_ticket_aggregates`, `create_ticket`, `mark_ticket_as_spam`, `mark_ticket_as_favorite`,
   `unmark_ticket_as_favorite`
