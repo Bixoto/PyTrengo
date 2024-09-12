@@ -15,4 +15,4 @@ if [ -n "$CI_MYPY_ONLY" ]; then
   exit 0
 fi
 
-# poetry run pytest --cov=. $COV_ARGS tests/
+poetry run pytest --cov=. $COV_ARGS tests/
