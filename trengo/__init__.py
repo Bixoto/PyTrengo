@@ -211,7 +211,7 @@ class Trengo(APISession):
                 "message": message,
                 "internal_note": is_internal_note,
                 "subject": subject,
-                "attachments_ids": list(attachments_ids),
+                "attachments_ids": list(attachments_ids) if attachments_ids else None,
             },
             **kwargs
         )
