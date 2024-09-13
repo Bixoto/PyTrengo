@@ -6,7 +6,7 @@ from typing import Any, Iterable
 from api_session import APISession, JSONDict, escape_path
 
 __all__ = ["Trengo", "__version__"]
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 
 
 class Trengo(APISession):

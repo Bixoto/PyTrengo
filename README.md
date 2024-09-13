@@ -28,8 +28,9 @@ trengo_client = Trengo()
 
 for ticket in trengo_client.get_tickets():
     print(...)
-
 ```
+
+List queries are transparently paginated for you.
 
 ## Endpoints coverage
 

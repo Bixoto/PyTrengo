@@ -1,6 +1,6 @@
 # PyTrengo Changelog
 
-## 0.1.3 (unreleased)
+## 0.1.3 (2024/09/13)
 
 * Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`, `set_custom_data`, `delete_message`,
   `send_ticket_message`, `send_ticket_media_message` (untested), `get_messages`, `get_message`,
