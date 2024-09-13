@@ -186,3 +186,7 @@ trengo_client.post_json_api("/some-other-endpoint",
 | BETA - Get reporting histograms    |                                              |
 | BETA - Agent performance reporting |                                              |
 | BETA - Get Ticket Details Report   |                                              |
+
+## License
+
+Copyright 2024 [Bixoto](https://bixoto.com/).
