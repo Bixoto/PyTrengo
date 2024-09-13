@@ -188,6 +188,54 @@ class Trengo(APISession):
         """Unmark a ticket as spam"""
         return self.delete_json_api(f"/tickets/{escape_path(ticket_id)}/spam", **kwargs)
 
+    def set_custom_data(self, ticket_id: int, custom_field_id: int, value: str, **kwargs):
+        """Set a custom field value for a ticket."""
+        return self.post_json_api(f"/tickets/{escape_path(ticket_id)}/custom_fields",
+                                  json={"custom_field_id": custom_field_id, "value": value},
+                                  **kwargs)
+
+    def delete_message(self, ticket_id: int, message_id: int, **kwargs):
+        """Delete a message."""
+        return self.delete_json_api(f"/{escape_path(ticket_id)}/messages/{escape_path(message_id)}",
+                                    **kwargs)
+
+    def send_ticket_message(self, ticket_id: int, message: str, *,
+                            is_internal_note: bool | None = None,
+                            subject: str | None = None,
+                            attachments_ids: Iterable[int] | None = None,
+                            **kwargs):
+        """Send a ticket message."""
+        return self.post_json_api(
+            f"/tickets/{escape_path(ticket_id)}/messages",
+            json={
+                "message": message,
+                "internal_note": is_internal_note,
+                "subject": subject,
+                "attachments_ids": list(attachments_ids),
+            },
+            **kwargs
+        )
+
+    def send_ticket_media_message(self, ticket_id: str, *,
+                                  file: str,
+                                  caption: str | None = None,
+                                  **kwargs):
+        """
+        Send a ticket media message (UNTESTED).
+        """
+        return self.post_json_api(
+            f"/tickets/{escape_path(ticket_id)}/messages/media",
+            json={
+                "file": file,
+                "caption": caption,
+            },
+            **kwargs,
+        )
+
+    def get_messages(self, ticket_id: int, **kwargs):
+        """Yield all messages from a ticket."""
+        return self._get_paginated(f"/tickets/{escape_path(ticket_id)}/messages", **kwargs)
+
     def mark_ticket_as_favorite(self, ticket_id: int, **kwargs):
         """Mark a ticket as favorite"""
         return self.post_json_api(f"/tickets/{escape_path(ticket_id)}/favorited", **kwargs)
@@ -195,6 +243,27 @@ class Trengo(APISession):
     def unmark_ticket_as_favorite(self, ticket_id: int, **kwargs):
         """Unmark a ticket as favorite"""
         return self.delete_json_api(f"/tickets/{escape_path(ticket_id)}/favorited/0", **kwargs)
+
+    def get_message(self, ticket_id: int, message_id: int, **kwargs):
+        """Get a single message."""
+        return self.get_json_api(f"/tickets/{escape_path(ticket_id)}/messages/{escape_path(message_id)}", **kwargs)
+
+    def store_custom_channel_message(self, channel: str, *,
+                                     contact: dict[str, Any] | None = None,
+                                     text: str,
+                                     attachments: Iterable[dict[str, Any]] | None = None,
+                                     **kwargs):
+        """Store a custom channel message (UNTESTED)."""
+        return self.post_json_api(
+            "/v2/custom_channel_messages",
+            json={
+                "channel": channel,
+                "contact": contact,
+                "body": {"text": text},
+                "attachments": list(attachments) if attachments else None,
+            },
+            **kwargs,
+        )
 
     # == WhatsApp ==
 

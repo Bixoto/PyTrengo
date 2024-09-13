@@ -2,7 +2,9 @@
 
 ## 0.1.3 (unreleased)
 
-* Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`
+* Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`, `set_custom_data`, `delete_message`,
+  `send_ticket_message`, `send_ticket_media_message` (untested), `get_messages`, `get_message`,
+  `store_custom_channel_message` (untested)
 
 ## 0.1.2 (2024/09/12)
 
