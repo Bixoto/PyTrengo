@@ -1,13 +1,18 @@
 # PyTrengo Changelog
 
-## 0.1.3 (2024/09/13)
+## Unreleased
 
 * Make `get_profiles`’s and `get_contacts`’s `term` argument optional
-* Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`, `set_custom_data`, `delete_message`,
-  `send_ticket_message`, `send_ticket_media_message` (untested), `get_messages`, `get_message`,
-  `store_custom_channel_message` (untested), `get_contact`, `get_profile`
+* Add `get_contact`, `get_profile` (partially untested), `create_contact`,
+  `update_contact`
 * Add type hints on `get_webhook`, `get_help_center`, `get_help_center_category`, `get_help_center_article`,
   `get_help_center_block`
+
+## 0.1.3 (2024/09/13)
+
+* Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`, `set_custom_data`, `delete_message`,
+  `send_ticket_message`, `send_ticket_media_message` (untested), `get_messages`, `get_message`,
+  `store_custom_channel_message` (untested)
 
 ## 0.1.2 (2024/09/12)
 

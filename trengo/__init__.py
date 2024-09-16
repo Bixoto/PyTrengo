@@ -311,6 +311,32 @@ class Trengo(APISession):
             **kwargs,
         )
 
+    def create_contact(self, channel_id: int, identifier: str, *, full_name: str | None = None, **kwargs) -> JSONDict:
+        """
+        Create a contact if it doesn't exist, and return it.
+        """
+        return self.post_json_api(
+            f"/channels/{escape_path(channel_id)}/contacts",
+            json={
+                "identifier": identifier,
+                "channel_id": channel_id,
+                "name": full_name,
+            },
+            **kwargs,
+        )
+
+    def update_contact(self, contact_id: int, *, full_name: str | None = None, contact_group_ids: list[int] | None,
+                       **kwargs):
+        """Update a contact."""
+        return self.put_json_api(
+            f"/contacts/{contact_id}",
+            json={
+                "name": full_name,
+                "contact_group_ids": contact_group_ids,
+            },
+            **kwargs,
+        )
+
     # == Profiles ==
 
     def get_profiles(self, term: str | None = None, **kwargs):
