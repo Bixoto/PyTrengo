@@ -196,6 +196,7 @@ conventions:
 * Methods for API endpoints like "Get &lt;name>" or "View &lt;name>" are named `get_<name>`
 * We try to stay consistent even when the API isn’t: the field for the relations to include is always named `include` in
   PyTrengo, while the API uses `include` in some calls and `with` in some others
+* Some endpoints take a single ID; their method use an extended name like `contact_id` or `ticket_id` instead of `id`
 
 ## License
 
