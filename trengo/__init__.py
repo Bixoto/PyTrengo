@@ -291,7 +291,7 @@ class Trengo(APISession):
 
     # == Contacts ==
 
-    def get_contacts(self, term: str | None, **kwargs):
+    def get_contacts(self, term: str | None = None, **kwargs):
         """Yield all contacts."""
         return self._get_paginated("/contacts",
                                    params={"term": term},
@@ -299,7 +299,7 @@ class Trengo(APISession):
 
     # == Profiles ==
 
-    def get_profiles(self, term: str | None, **kwargs):
+    def get_profiles(self, term: str | None = None, **kwargs):
         """Yield all profiles."""
         return self._get_paginated("/profiles",
                                    params={"term": term},

@@ -2,6 +2,7 @@
 
 ## 0.1.3 (2024/09/13)
 
+* Make `get_profiles`’s and `get_contacts`’s `term` argument optional
 * Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`, `set_custom_data`, `delete_message`,
   `send_ticket_message`, `send_ticket_media_message` (untested), `get_messages`, `get_message`,
   `store_custom_channel_message` (untested)
