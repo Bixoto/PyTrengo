@@ -189,8 +189,11 @@ trengo_client.post_json_api("/some-other-endpoint",
 
 ## Naming
 
-* Methods for API endpoints like "List <name>s" are named `get_<name>s`
-* Methods for API endpoints like "Get <name>" or "View <name>" are named `get_<name>`
+We follow the naming used in the Trengo API, but we sometimes have to differ from it for consistency or to follow Python
+conventions:
+
+* Methods for API endpoints like "List &lt;name>s" are named `get_<name>s`
+* Methods for API endpoints like "Get &lt;name>" or "View &lt;name>" are named `get_<name>`
 * We try to stay consistent even when the API isn’t: the field for the relations to include is always named `include` in
   PyTrengo, while the API uses `include` in some calls and `with` in some others
 
