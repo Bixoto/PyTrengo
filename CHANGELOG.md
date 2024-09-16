@@ -1,6 +1,6 @@
 # PyTrengo Changelog
 
-## Unreleased
+## 0.1.4 (2024/09/16)
 
 * Make `get_profiles`’s and `get_contacts`’s `term` argument optional
 * Add `get_contact`, `get_profile` (partially untested), `create_contact`,
