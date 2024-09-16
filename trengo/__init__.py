@@ -244,7 +244,7 @@ class Trengo(APISession):
         """Unmark a ticket as favorite"""
         return self.delete_json_api(f"/tickets/{escape_path(ticket_id)}/favorited/0", **kwargs)
 
-    def get_message(self, ticket_id: int, message_id: int, **kwargs):
+    def get_message(self, ticket_id: int, message_id: int, **kwargs) -> JSONDict | None:
         """Get a single message."""
         return self.get_json_api(f"/tickets/{escape_path(ticket_id)}/messages/{escape_path(message_id)}", **kwargs)
 
@@ -329,21 +329,21 @@ class Trengo(APISession):
         """Yield all help center blocks."""
         return self._get_paginated(f"/help_center/{escape_path(help_center_id)}/blocks", **kwargs)
 
-    def get_help_center(self, help_center_id: int, **kwargs):
+    def get_help_center(self, help_center_id: int, **kwargs) -> JSONDict | None:
         """Get a help center."""
         return self.get_json_api(f"/help_center/{escape_path(help_center_id)}", **kwargs)
 
-    def get_help_center_category(self, help_center_id: int, category_id: int, **kwargs):
+    def get_help_center_category(self, help_center_id: int, category_id: int, **kwargs) -> JSONDict | None:
         """Get a help center category."""
         return self.get_json_api(f"/help_center/{escape_path(help_center_id)}/categories/{escape_path(category_id)}",
                                  **kwargs)
 
-    def get_help_center_article(self, help_center_id: int, article_id: int, **kwargs):
+    def get_help_center_article(self, help_center_id: int, article_id: int, **kwargs) -> JSONDict | None:
         """Get a help center article."""
         return self.get_json_api(f"/help_center/{escape_path(help_center_id)}/articles/{escape_path(article_id)}",
                                  **kwargs)
 
-    def get_help_center_block(self, help_center_id: int, block_id: int, **kwargs):
+    def get_help_center_block(self, help_center_id: int, block_id: int, **kwargs) -> JSONDict | None:
         """Get a help center block."""
         return self.get_json_api(f"/help_center/{escape_path(help_center_id)}/blocks/{escape_path(block_id)}",
                                  **kwargs)
@@ -432,7 +432,7 @@ class Trengo(APISession):
             **kwargs
         )
 
-    def get_webhook(self, webhook_id: int, **kwargs):
+    def get_webhook(self, webhook_id: int, **kwargs) -> JSONDict | None:
         """Get a webhook"""
         return self.get_json_api(f"/webhooks/{escape_path(webhook_id)}", **kwargs)
 
