@@ -297,6 +297,20 @@ class Trengo(APISession):
                                    params={"term": term},
                                    **kwargs)
 
+    def get_contact(self, contact_id: int, include: list[str] | None = None, **kwargs) -> JSONDict | None:
+        """
+        Get a single contact.
+
+        :param contact_id:
+        :param include: Eager load relations (available: "notes")
+        :return:
+        """
+        return self.get_json_api(
+            f"/contacts/{escape_path(contact_id)}",
+            params={"include": ",".join(include) if include else None},
+            **kwargs,
+        )
+
     # == Profiles ==
 
     def get_profiles(self, term: str | None = None, **kwargs):
@@ -304,6 +318,23 @@ class Trengo(APISession):
         return self._get_paginated("/profiles",
                                    params={"term": term},
                                    **kwargs)
+
+    def get_profile(self, profile_id: int, include: list[str] | None = None, **kwargs) -> JSONDict | None:
+        """
+        Get a single profile.
+
+        :param profile_id:
+        :param include: Eager load relations (available: "user", "notes").
+          Note using both "user" and "notes" is untested.
+        """
+        return self.get_json_api(
+            f"/profiles/{escape_path(profile_id)}",
+            # NOTE: it’s not clear how to combine "user" and "notes" here;
+            #   the documentation only seems to allow "user" OR "notes" and the API doesn't enforce the value:
+            #   we can use "foo" with no error.
+            params={"with": ",".join(include) if include else None},
+            **kwargs,
+        )
 
     # == SMS Messages ==
 

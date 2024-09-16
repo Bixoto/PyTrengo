@@ -5,7 +5,7 @@
 * Make `get_profiles`’s and `get_contacts`’s `term` argument optional
 * Add `attach_ticket_label`, `detach_ticket_label`, `delete_ticket`, `set_custom_data`, `delete_message`,
   `send_ticket_message`, `send_ticket_media_message` (untested), `get_messages`, `get_message`,
-  `store_custom_channel_message` (untested)
+  `store_custom_channel_message` (untested), `get_contact`, `get_profile`
 * Add type hints on `get_webhook`, `get_help_center`, `get_help_center_category`, `get_help_center_article`,
   `get_help_center_block`
 

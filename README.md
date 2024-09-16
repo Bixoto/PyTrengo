@@ -46,7 +46,7 @@ trengo_client.post_json_api("/some-other-endpoint",
 
 | Endpoint                           | Method                                       |
 |:-----------------------------------|:---------------------------------------------|
-| **All endpoints**                  | **37%**                                      |
+| **All endpoints**                  | **39%**                                      |
 | **Tickets**                        | **100%**                                     |
 | List all tickets                   | `get_tickets`                                |
 | List all aggregates                | `get_ticket_aggregates`                      |
@@ -71,19 +71,19 @@ trengo_client.post_json_api("/some-other-endpoint",
 | Store a custom channel message     | `store_custom_channel_message` (since 0.1.3) |
 | **WhatsApp**                       | **100%**                                     |
 | Send a WhatsApp template           | `send_whatsapp_template`                     |
-| **Contacts**                       | **12%**                                      |
+| **Contacts**                       | **24%**                                      |
 | List contacts                      | `get_contacts`                               |
-| View a contact                     |                                              |
+| View a contact                     | `get_contact` (since 0.1.3)                  |
 | Create a contact                   |                                              |
 | Update a contact                   |                                              |
 | Delete a contact                   |                                              |
 | Custom fields                      |                                              |
 | Add a note                         |                                              |
 | Delete a note                      |                                              |
-| **Profiles**                       | **8%**                                       |
+| **Profiles**                       | **16%**                                      |
 | Create a profile                   |                                              |
 | List profiles                      | `get_profiles`                               |
-| View a profile                     |                                              |
+| View a profile                     | `get_profile` (since 0.1.3)                  |
 | Update a profile                   |                                              |
 | Custom fields                      |                                              |
 | Delete a profile                   |                                              |
