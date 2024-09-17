@@ -337,6 +337,36 @@ class Trengo(APISession):
             **kwargs,
         )
 
+    def delete_contact(self, contact_id: int, **kwargs):
+        """Delete a contact."""
+        return self.delete_json_api(f"/contacts/{escape_path(contact_id)}", **kwargs)
+
+    def set_contact_custom_field(self, contact_id: int, custom_field_id: int, value: str, **kwargs):
+        """Set a custom field value for a contact."""
+        return self.post_json_api(
+            f"/contacts/{escape_path(contact_id)}/custom_fields",
+            json={
+                "custom_field_id": custom_field_id,
+                "value": value,
+            },
+            **kwargs,
+        )
+
+    def add_contact_note(self, contact_id: int, note: str, **kwargs):
+        """Add a note to a contact."""
+        return self.post_json_api(
+            f"/contacts/{escape_path(contact_id)}/notes",
+            json={"note": note},
+            **kwargs,
+        )
+
+    def delete_contact_note(self, contact_id: int, note_id: int, **kwargs):
+        """Delete a note from a contact."""
+        return self.delete_json_api(
+            f"/contacts/{escape_path(contact_id)}/notes/{escape_path(note_id)}",
+            **kwargs,
+        )
+
     # == Profiles ==
 
     def get_profiles(self, term: str | None = None, **kwargs):

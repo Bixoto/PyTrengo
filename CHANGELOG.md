@@ -1,5 +1,9 @@
 # PyTrengo Changelog
 
+## 0.1.5 (unreleased)
+
+* Add `delete_contact`, `set_contact_custom_field`, `add_contact_note`, `delete_contact_note`
+
 ## 0.1.4 (2024/09/16)
 
 * Make `get_profiles`’s and `get_contacts`’s `term` argument optional
